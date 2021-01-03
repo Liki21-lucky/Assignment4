@@ -1,0 +1,24 @@
+
+1) both formula can be used 
+mid =(beg+end)/2  may  dont have much over flow
+
+2)Algorithm
+
+ternarySearch(array, start, end, key)
+Begin
+   if start <= end then
+      midFirst := start + (end - start) /3
+      midSecond := midFirst + (end - start) / 3
+      if array[midFirst] = key then
+         return midFirst
+      if array[midSecond] = key then
+         return midSecond
+      if key < array[midFirst] then
+         call ternarySearch(array, start, midFirst-1, key)
+      if key > array[midSecond] then
+         call ternarySearch(array, midFirst+1, end, key)
+      else
+         call ternarySearch(array, midFirst+1, midSecond-1, key)
+   else
+      return invalid location
+End
